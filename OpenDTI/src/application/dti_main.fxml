@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.StatusBar?>
+
+<AnchorPane fx:id="aprootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="459.0" minWidth="891.0" prefHeight="529.0" prefWidth="952.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Main">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="898.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu fx:id="menfile" mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menexit" mnemonicParsing="false" onAction="#menexitclick" text="Exit" />
+            </items>
+          </Menu>
+            <Menu fx:id="mensettings" mnemonicParsing="false" text="Settings">
+              <items>
+                  <Menu fx:id="menlanguage" mnemonicParsing="false" text="Language">
+                     <items>
+                        <MenuItem fx:id="menlanggerman" mnemonicParsing="false" onAction="#menlanggermanclick" text="Deutsch" />
+                        <MenuItem fx:id="menlangenglish" mnemonicParsing="false" onAction="#menlangenglishclick" text="English" />
+                     </items>
+                  </Menu>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <Menu fx:id="mendatabase" mnemonicParsing="false" text="Database">
+                    <items>
+                      <MenuItem fx:id="mendatabasereset" mnemonicParsing="false" onAction="#mendatabaseresetclick" text="Reset Database" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
+          <Menu fx:id="menhelp" mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="menabout" mnemonicParsing="false" onAction="#menaboutclick" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane fx:id="tabpanemain" layoutY="31.0" prefHeight="498.0" prefWidth="952.0" styleClass="underlined" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="31.0">
+        <tabs>
+          <Tab fx:id="tabgettokeninfo" text="Get Token Info">
+            <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="452.0" prefWidth="891.0">
+                     <children>
+                        <Label text="Token:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                        <TextField fx:id="txttoken" onAction="#btngettokeninfoclick" prefHeight="25.0" prefWidth="719.0" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="176.0" AnchorPane.topAnchor="10.0" />
+                        <Button fx:id="btngettokeninfo" layoutX="761.0" layoutY="10.0" mnemonicParsing="false" onAction="#btngettokeninfoclick" prefHeight="25.0" prefWidth="155.0" text="Get Token Info" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0" />
+                        <ProgressBar fx:id="progbarloading" layoutX="14.0" layoutY="40.0" opacity="0.0" prefHeight="18.0" prefWidth="869.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="40.0" />
+                        <AnchorPane fx:id="panetokeninfodetails" layoutX="14.0" layoutY="61.0" prefHeight="394.0" prefWidth="924.0" style="-fx-border-color: grey;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="61.0">
+                           <children>
+                              <Label fx:id="lblusername" layoutX="14.0" layoutY="21.0" prefHeight="17.0" prefWidth="600.0" text="Username:" />
+                              <Label fx:id="lbllocale" layoutX="14.0" layoutY="38.0" prefHeight="17.0" prefWidth="600.0" text="Locale: " />
+                              <Label fx:id="lblid" layoutX="14.0" layoutY="55.0" prefHeight="17.0" prefWidth="600.0" text="ID:" />
+                              <Label fx:id="lbltoken" layoutX="14.0" layoutY="72.0" prefHeight="17.0" prefWidth="600.0" text="Token:" />
+                              <Label fx:id="lblphone" layoutX="14.0" layoutY="89.0" prefHeight="17.0" prefWidth="600.0" text="Phone:" />
+                              <Label fx:id="lblemail" layoutX="14.0" layoutY="106.0" prefHeight="17.0" prefWidth="600.0" text="E-Mail:" />
+                              <Label fx:id="lblverified" layoutX="14.0" layoutY="123.0" prefHeight="17.0" prefWidth="600.0" text="Verified:" />
+                              <Label fx:id="lblacccreated" layoutX="14.0" layoutY="140.0" prefHeight="17.0" prefWidth="600.0" text="Account created:" />
+                              <Label fx:id="lblpublicflag" layoutX="14.0" layoutY="156.0" prefHeight="17.0" prefWidth="600.0" text="Public Flag:" />
+                              <Label fx:id="lblphone131" layoutX="14.0" layoutY="225.0" prefHeight="17.0" prefWidth="489.0" text="Bio:" />
+                              <TextArea fx:id="txtbio" editable="false" layoutX="14.0" layoutY="242.0" prefHeight="83.0" prefWidth="489.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="242.0" />
+                              <Label fx:id="lblnitro" layoutX="14.0" layoutY="174.0" prefHeight="17.0" prefWidth="600.0" text="Nitro status:" />
+                              <Label fx:id="lblnsfwallowed" layoutX="14.0" layoutY="191.0" prefHeight="17.0" prefWidth="600.0" text="NSFW allowed:" />
+                              <Label fx:id="lblmfaenabled" layoutX="14.0" layoutY="208.0" prefHeight="17.0" prefWidth="600.0" text="Multi-factor authentication enabled:" />
+                              <ImageView fx:id="imguseravatar" fitHeight="150.0" fitWidth="150.0" layoutX="656.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="23.0">
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                              <Button fx:id="btntokeninfologin" layoutX="14.0" layoutY="335.0" mnemonicParsing="false" onAction="#btntokeninfologinclick" prefHeight="25.0" prefWidth="279.0" text="Log into Discord with this Token" />
+                              <Button fx:id="btnaddtokentodb" layoutX="303.0" layoutY="335.0" mnemonicParsing="false" onAction="#btnaddtokentodbclick" prefHeight="25.0" prefWidth="200.0" text="Add to Database" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabtokenlistchecker" text="Tokenlist Checker">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="1.0" layoutY="14.0" prefHeight="431.0" prefWidth="952.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <tabs>
+                            <Tab fx:id="tabtokenstocheck" text="Tokens to check">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="221.0">
+                                       <children>
+                                          <Button fx:id="btnchecktokens" layoutX="743.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnchecktokensclick" prefHeight="25.0" prefWidth="141.0" text="Check Tokens" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                          <Label layoutX="14.0" layoutY="340.0" text="Note: Please enter one Token per line" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="14.0" />
+                                          <TextArea fx:id="txttokenstocheck" layoutX="15.0" layoutY="14.0" prefHeight="337.0" prefWidth="862.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button fx:id="btntokenstocheckclear" layoutX="583.0" layoutY="397.0" mnemonicParsing="false" onAction="#btntokenstocheckclearcheck" prefHeight="25.0" prefWidth="84.0" text="Clear" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="271.0" />
+                                          <Button fx:id="btnabortchecktokens" disable="true" layoutX="659.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnabortchecktokensclick" prefHeight="25.0" prefWidth="101.0" text="Abort" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="163.0" />
+                                          <Button fx:id="btntokenstocheckopenfromfile" layoutX="402.0" layoutY="397.0" mnemonicParsing="false" onAction="#btntokenstocheckopenfromfileclick" prefHeight="26.0" prefWidth="159.0" text="Open from file" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="362.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab fx:id="tabworkingtokens" text="Working tokens">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ListView fx:id="lvworkingtokens" layoutY="4.0" prefHeight="356.0" prefWidth="862.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button fx:id="btnclearworkingtokens" layoutX="796.0" layoutY="369.0" mnemonicParsing="false" onAction="#btnclearworkingtokensclick" prefHeight="26.0" prefWidth="101.0" text="Clear" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                          <Button fx:id="btnworkingtokenssavetofile" layoutX="14.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnworkingtokenssavetofileclick" prefHeight="25.0" prefWidth="151.0" text="Save all Tokens to file" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+                                          <Button fx:id="btnworkingtokenscopyselected" disable="true" layoutX="359.0" layoutY="418.0" mnemonicParsing="false" onAction="#btnworkingtokenscopyselectedclick" prefHeight="25.0" prefWidth="158.0" text="Copy selected" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="359.0" />
+                                          <Button fx:id="btnworkingtokensgetinfo" disable="true" layoutX="525.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnworkingtokensgetinfoclick" prefHeight="25.0" prefWidth="174.0" text="Get info about selected" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="525.0" />
+                                          <Button fx:id="btntokenlistcheckertokensaveindb" layoutX="173.0" layoutY="418.0" mnemonicParsing="false" onAction="#btntokenlistcheckertokensaveindbclick" prefHeight="25.0" prefWidth="177.0" text="Save all in Tokens database" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="173.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                        <StatusBar fx:id="statusbartokenschecked" layoutY="426.0" prefWidth="952.0" text="Ready." AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabgetmytoken" text="Get my Token">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="545.0" prefWidth="898.0">
+                     <children>
+                        <ListView fx:id="lvtokensfound" layoutX="14.0" layoutY="13.0" prefHeight="463.0" prefWidth="870.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0" />
+                        <Button fx:id="btngetmytoken" layoutX="764.0" layoutY="488.0" mnemonicParsing="false" onAction="#btngetmytokenclick" prefHeight="25.0" prefWidth="188.0" text="Get my Tokens!" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                        <Button fx:id="btngettokeninfoselectedtoken" disable="true" layoutX="14.0" layoutY="490.0" mnemonicParsing="false" onAction="#btngettokeninfoselectedtokenclick" prefHeight="25.0" prefWidth="213.0" text="Get info about selected Token" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+                        <Button fx:id="btngetyourtokencopyselected" disable="true" layoutX="238.0" layoutY="379.0" mnemonicParsing="false" onAction="#btngetyourtokencopyselectedclick" prefHeight="25.0" prefWidth="167.0" text="Copy selected" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="238.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabbuildtokengrabber" text="Build Token Grabber (only Windows)">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="txttgwebhookutl" layoutX="14.0" layoutY="35.0" prefHeight="25.0" prefWidth="922.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="35.0" />
+                        <Label layoutX="14.0" layoutY="14.0" text="WebHook URL:" />
+                        <Button fx:id="btnbuildgrabber" disable="true" layoutX="797.0" layoutY="430.0" mnemonicParsing="false" onAction="#btnbuildgrabberclick" prefHeight="25.0" prefWidth="229.0" text="Build Grabber" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                        <CheckBox fx:id="cbtgdisclaimer" layoutX="14.0" layoutY="434.0" mnemonicParsing="false" onAction="#cbtgdisclaimerclick" text="I will not use this Token Grabber for any illegal purposes" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="14.0" />
+                        <Accordion layoutX="14.0" layoutY="71.0" prefHeight="346.0" prefWidth="923.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="71.0">
+                          <panes>
+                            <TitledPane fx:id="tpmessageonsuccess" animated="false" text="Message on success">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <CheckBox fx:id="cbtgshowsuccessmsg" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#cbtgshowsuccessmsgclick" text="Create a Message when successed" />
+                                          <AnchorPane fx:id="aptgmsgsettings" disable="true" layoutX="32.0" layoutY="35.0" prefHeight="194.0" prefWidth="878.0" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="22.0">
+                                             <children>
+                                                <Label layoutX="14.0" layoutY="14.0" text="Icon:" />
+                                                <RadioButton fx:id="cbtgmsgiconwarning" layoutX="27.0" layoutY="31.0" mnemonicParsing="false" text="Warning" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="31.0">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="tbmsg" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="cbtgmsgiconinfo" layoutX="27.0" layoutY="57.0" mnemonicParsing="false" text="Info" toggleGroup="$tbmsg" AnchorPane.leftAnchor="27.0" />
+                                                <RadioButton fx:id="cbtgmsgiconerror" layoutX="26.0" layoutY="83.0" mnemonicParsing="false" selected="true" text="Error" toggleGroup="$tbmsg" AnchorPane.leftAnchor="27.0" />
+                                                <RadioButton fx:id="cbtgmsgiconquestion" layoutX="26.0" layoutY="107.0" mnemonicParsing="false" text="Question" toggleGroup="$tbmsg" AnchorPane.leftAnchor="27.0" />
+                                                <RadioButton fx:id="cbtgmsgiconnone" layoutX="28.0" layoutY="132.0" mnemonicParsing="false" text="None" toggleGroup="$tbmsg" AnchorPane.leftAnchor="27.0" />
+                                                <Label layoutX="148.0" layoutY="14.0" text="Title:" />
+                                                <Label layoutX="146.0" layoutY="68.0" text="Text:" />
+                                                <TextField fx:id="txttgmsgtitle" layoutX="162.0" layoutY="32.0" prefHeight="25.0" prefWidth="700.0" text="Application can't run" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="32.0" />
+                                                <Button fx:id="btntgmsgtest" layoutX="770.0" layoutY="155.0" mnemonicParsing="false" onAction="#btntgmsgtestclick" prefHeight="25.0" prefWidth="91.0" text="Test" />
+                                                <TextField fx:id="txttgmsgtext" layoutX="162.0" layoutY="87.0" prefHeight="25.0" prefWidth="699.0" text="MSCRT.DLL is missing from your computer. A Reinstallation could fix the problem" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane fx:id="tpcustomicon" animated="false" text="Custom Icon">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <CheckBox fx:id="cbtgaddicon" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#cbtgaddiconclick" text="Add a custom Icon" />
+                                          <Button fx:id="btntgiconbrowse" disable="true" layoutX="608.0" layoutY="46.0" mnemonicParsing="false" onAction="#btntgiconbrowseclick" prefHeight="25.0" prefWidth="134.0" text="Browse" />
+                                          <TextField fx:id="txttgiconpath" disable="true" editable="false" layoutX="75.0" layoutY="44.0" prefHeight="29.0" prefWidth="522.0" />
+                                       </children></AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane fx:id="tpadvoptions" animated="false" text="Advanced Options">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <CheckBox fx:id="cbtgsemdsysteminfo" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Send System indormations (includes OS-Version, CD-Key, Processor architecture and RAM-memory informations)" />
+                                          <CheckBox fx:id="cbtghidewindow" layoutX="14.0" layoutY="40.0" mnemonicParsing="false" text="Hide grabber window" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabtokendatabase" text="Token Database">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tvdbtokens" layoutX="14.0" layoutY="27.0" prefHeight="409.0" prefWidth="924.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="27.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C2" />
+                              <TableColumn prefWidth="75.0" text="C1" />
+                           </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                    <MenuItem fx:id="tvdbtokenscmcpusername" mnemonicParsing="false" onAction="#tvdbtokenscmcpusernameclick" text="Copy Username" />
+                                  <MenuItem fx:id="tvdbtokenscmcptoken" mnemonicParsing="false" onAction="#tvdbtokenscmcptokenclick" text="Copy Token" />
+                                    <MenuItem fx:id="tvdbtokenscmcpdcuserid" mnemonicParsing="false" onAction="#tvdbtokenscmcpdcuseridclick" text="Copy Discord User-ID" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem fx:id="tvdbtokenscmgettokeninfo" mnemonicParsing="false" onAction="#tvdbtokenscmgettokeninfoclick" text="Get Token info" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem fx:id="tvdbtokenscm" mnemonicParsing="false" onAction="#tvdbtokenscmclick" text="Delete" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu></TableView>
+                        <Label layoutX="14.0" layoutY="456.0" text="Note: If a deleted Token does not disappear, please restart the application" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" />
+                        <Label layoutX="14.0" layoutY="6.0" text="Select a Token and right-click on it" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="5.0" />
+                        <Button fx:id="btntokendbrefresh" layoutX="858.0" layoutY="444.0" mnemonicParsing="false" onAction="#btntokendbrefreshclick" prefHeight="25.0" prefWidth="118.0" text="Refresh" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="14.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabothertools" text="Other Tools">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                    <AnchorPane layoutX="14.0" layoutY="30.0" minHeight="0.0" minWidth="0.0" prefHeight="138.0" prefWidth="924.0" style="-fx-border-color: gray;" AnchorPane.bottomAnchor="301.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <TextField fx:id="txtotclidcalc" layoutX="14.0" layoutY="42.0" prefHeight="26.0" prefWidth="253.0" promptText="User ID" />
+                              <Label fx:id="lbldiscordclientid" layoutX="14.0" layoutY="14.0" prefHeight="16.0" prefWidth="896.0" text="Discord Client Id: (you can get that in Discord when Developer Mode is activated)" />
+                              <Button fx:id="btnotclidcalc" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onAction="#btnotclidcalcclick" prefHeight="26.0" prefWidth="252.0" text="↓ Calculate creation date ↓" />
+                              <Label fx:id="lblotclidcalc" layoutX="14.0" layoutY="110.0" prefHeight="16.0" prefWidth="335.0" text="Account created: ???" />
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="lbldiscordacccreationdatecalculator" layoutX="14.0" layoutY="4.0" text="Discord account creation date calculator">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
